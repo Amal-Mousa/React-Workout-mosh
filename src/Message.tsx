@@ -1,7 +1,13 @@
 import React from "react";
 
-const Message = () =>{
-  return <h1> Hello World </h1>;
+let count = 0;
+const Message = () => {
+	count++;
+	return (
+		<h1>
+			Message {count}
+		</h1>
+	);
 };
 
 export default Message;
