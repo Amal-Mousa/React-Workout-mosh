@@ -14,6 +14,10 @@ import Game from "./components/Game";
 import Pizza from "./components/Pizza";
 import CartExercise from "./components/CartExercise";
 import ExpandedText from "./components/ExpandedText";
+import Form from "./components/FormRef";
+import FormState from "./components/FormState";
+import ReactHookForm from "./components/ReactHookForm";
+import ZodValidation from "./components/zodValidation";
 
 const App = () => {
 	const items = ["Gaza", "Rafah", "KhanYounis"];
@@ -53,7 +57,7 @@ const App = () => {
 			{/* <Pizza/> */}
 
 			{/* <CartExercise/> */}
-			<ExpandedText>
+			{/* <ExpandedText>
 				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt dignissimos fuga enim mollitia
 				delectus incidunt esse ut? Facilis possimus neque inventore sunt dolore iusto corrupti perferendis
 				quia, in nobis vero sed esse commodi atque? Temporibus impedit minima iusto similique sequi vero d
@@ -62,7 +66,14 @@ const App = () => {
 				voluptate possimus! Nam ut iste ullam voluptatibus aperiam eum dignissimos nostrum rem sit earum, qu
 				am praesentium libero. Illum magni, optio, ipsa cumque temporibus illo culpa, beatae voluptates omnis
 				id eaque soluta.
-			</ExpandedText>
+			</ExpandedText> */}
+
+			{/* <Form /> */}
+
+			{/* <FormState /> */}
+
+			{/* <ReactHookForm /> */}
+			<ZodValidation />
 		</div>
 	);
 };
