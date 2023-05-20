@@ -1,4 +1,5 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
+import {useRef} from "react";
 import ListGroup from "./components/ListGroup";
 import Alert from "./components/Alert";
 import Button from "./components/Button";
@@ -17,31 +18,55 @@ import ExpandedText from "./components/ExpandedText";
 import Form from "./components/FormRef";
 import FormState from "./components/FormState";
 import ReactHookForm from "./components/ReactHookForm";
-import categories from "./components/expense-tracker/Categories";
+// import categories from "./components/expense-tracker/Categories";
 // import ZodValidation from "./components/zodValidation";
 import ExpenseForm from "./components/expense-tracker/components/ExpenseForm";
 import ExpenseList from "./components/expense-tracker/components/ExpenseList";
 import ExpenseFilter from "./components/expense-tracker/components/ExpenseFilter";
+import ProductList from "./components/ProductList";
+import UsersList from "./components/UsersList";
 
 const App = () => {
-	const items = ["Gaza", "Rafah", "KhanYounis"];
-	const handleSelectedItem = (item: string) => {
-		console.log(item);
-	};
-	const [visibility, setVisibility] = useState(false);
-	const [cartItems, setCartItems] = useState(["product1", "product2"]);
-	const [selectedCategory, setSelectedCategory] = useState("");
-	const [expense, setExpense] = useState([
-		{id: 1, description: "dsanj", amount: 3, category: "one"},
-		{id: 3, description: "dsanj", amount: 101, category: "Entertainment"}
-	]);
+	// const items = ["Gaza", "Rafah", "KhanYounis"];
+	// const handleSelectedItem = (item: string) => {
+	// 	console.log(item);
+	// };
+	// const [visibility, setVisibility] = useState(false);
+	// const [cartItems, setCartItems] = useState(["product1", "product2"]);
+	// const [selectedCategory, setSelectedCategory] = useState("");
+	// const [expense, setExpense] = useState([
+	// {id: 1, description: "dsanj", amount: 3, category: "one"},
+	// {id: 3, description: "dsanj", amount: 101, category: "Entertainment"}
+	// ]);
 
-	const filteredExpenses = selectedCategory
-		? expense.filter(expense => expense.category === selectedCategory)
-		: expense;
+	// const filteredExpenses = selectedCategory
+	// ? expense.filter(expense => expense.category === selectedCategory)
+	// : expense;
+
+	// const ref = useRef<HTMLInputElement>(null);
+
+	// after each render
+	// useEffect(() => {
+	// 	if (ref.current) ref.current.focus();
+	// });
+
+	// useEffect(() => {
+	// 	document.title = "My App";
+	// });
+	// const [category, setCategory] = useState("");
+
+	// const connect = () => console.log('connect');
+	// const disconnect = () => console.log('disconnect');
+
+	// useEffect(() => {
+	// 	connect();
+	// 	return () => disconnect();
+	// });
 
 	return (
 		<div>
+			{/* <input ref={ref} type="text" className="form-control" /> */}
+
 			{/* <ListGroup
 				items={items}
 				heading="Cities"
@@ -87,14 +112,21 @@ const App = () => {
 
 			{/* <ReactHookForm /> */}
 			{/* <ZodValidation /> */}
-			<ExpenseForm />
-			<ExpenseFilter
-				onSelectCategory={category => setSelectedCategory(category)}
-			/>
-			<ExpenseList
-				expenses={filteredExpenses}
-				onDelete={id => setExpense(expense.filter(item => item.id !== id))}
-			/>
+			{/* <ExpenseForm /> */}
+			{/* <ExpenseFilter */}
+			{/* onSelectCategory={category => setSelectedCategory(category)} */}
+			{/* /> */}
+			{/* <ExpenseList */}
+			{/* expenses={filteredExpenses} */}
+			{/* onDelete={id => setExpense(expense.filter(item => item.id !== id))} */}
+			{/* /> */}
+			{/* <select className="form-select" onChange={e => setCategory(e.target.value)}>
+				<option value="" />
+				<option value="a">a</option>
+				<option value="b">b</option>
+			</select>
+			<ProductList category={category} /> */}
+			<UsersList />
 		</div>
 	);
 };
