@@ -17,7 +17,11 @@ import ExpandedText from "./components/ExpandedText";
 import Form from "./components/FormRef";
 import FormState from "./components/FormState";
 import ReactHookForm from "./components/ReactHookForm";
-import ZodValidation from "./components/zodValidation";
+import categories from "./components/expense-tracker/Categories";
+// import ZodValidation from "./components/zodValidation";
+import ExpenseForm from "./components/expense-tracker/components/ExpenseForm";
+import ExpenseList from "./components/expense-tracker/components/ExpenseList";
+import ExpenseFilter from "./components/expense-tracker/components/ExpenseFilter";
 
 const App = () => {
 	const items = ["Gaza", "Rafah", "KhanYounis"];
@@ -26,6 +30,15 @@ const App = () => {
 	};
 	const [visibility, setVisibility] = useState(false);
 	const [cartItems, setCartItems] = useState(["product1", "product2"]);
+	const [selectedCategory, setSelectedCategory] = useState("");
+	const [expense, setExpense] = useState([
+		{id: 1, description: "dsanj", amount: 3, category: "one"},
+		{id: 3, description: "dsanj", amount: 101, category: "Entertainment"}
+	]);
+
+	const filteredExpenses = selectedCategory
+		? expense.filter(expense => expense.category === selectedCategory)
+		: expense;
 
 	return (
 		<div>
@@ -73,7 +86,15 @@ const App = () => {
 			{/* <FormState /> */}
 
 			{/* <ReactHookForm /> */}
-			<ZodValidation />
+			{/* <ZodValidation /> */}
+			<ExpenseForm />
+			<ExpenseFilter
+				onSelectCategory={category => setSelectedCategory(category)}
+			/>
+			<ExpenseList
+				expenses={filteredExpenses}
+				onDelete={id => setExpense(expense.filter(item => item.id !== id))}
+			/>
 		</div>
 	);
 };
